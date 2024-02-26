@@ -1,0 +1,24 @@
+{
+  "name": "nodejsschoolmanagementapi",
+  "version": "1.0.0",
+  "description": "School management System API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "keywords": [
+    "lms",
+    "nodejs"
+  ],
+  "author": "Ilyass EL AMRI",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.2.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.0"
+  }
+}
