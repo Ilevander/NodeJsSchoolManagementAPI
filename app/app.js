@@ -33,7 +33,7 @@ app.post('/api/v1/admins/login', (req,res) => {
         {
             res.status(201).json({
                 status:'sucess',
-                data: 'Admin has been registred'
+                data: 'Admin has been logged successfully'
             })
         }
         catch(err)
