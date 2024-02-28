@@ -41,6 +41,8 @@ exports.loginAdminController =  async (req,res) => {
                }
                 if(user && await user.verifyPassword(password))
                   {
+                    //Save the user into req object:
+                    req.userAuth = user;
                     return res.json({data:user});
                   }
                    else 
