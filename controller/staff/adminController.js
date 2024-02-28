@@ -1,19 +1,19 @@
 //to separate the business logic and taking dispatching roles from adminRouter
+
+const AsyncHandler = require("express-async-handler");
 const Admin = require("../../model/Staff/Admin");
 
 //@desc : Register Admin
 //@route : POST /api/admins/register
 //@access Private
-exports.regiterAdminController = async (req,res) => {
+exports.regiterAdminController = AsyncHandler(async (req,res) => {
     const {name , email , password } = req.body;
-    try
-        {
             //Check if email exists
             const adminFound = await Admin.findOne({email});
-            // if(adminFound)
-            //       {
-            //         res.json("Admin Already exists !!");
-            //       }
+            if(adminFound)
+                  {
+                    res.json("Admin Already exists !!");
+                  }
                   //registration:
                   const user = await Admin.create({
                     name,
@@ -23,16 +23,8 @@ exports.regiterAdminController = async (req,res) => {
                 res.status(201).json({
                     status:'sucess',
                     data: user
-                })
-         }
-            catch(err)
-                    {
-                        res.json({
-                            status:'failed',
-                            error: err.message,
-                        });
-                    }
-};
+                });
+});
 
 //@desc :  Login Admin
 //@route : POST /api/admins/login
