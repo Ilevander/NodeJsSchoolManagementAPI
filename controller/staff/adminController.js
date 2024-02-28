@@ -37,21 +37,36 @@ exports.regiterAdminController = async (req,res) => {
 //@desc :  Login Admin
 //@route : POST /api/admins/login
 //@access Private
-exports.loginAdminController =  (req,res) => {
+exports.loginAdminController =  async (req,res) => {
+    const {email, password} = req.body;
     try
         {
-            res.status(201).json({
-                status:'sucess',
-                data: 'Admin has been Logged successfully'
-            })
-        }
-        catch(err)
-                {
-                    res.json({
-                        status:'failed',
-                        err: error.message,
-                    });
-                }
+            //find user
+            const user = await Admin.findOne({email});
+            if(!user)
+               {
+                return res.json({message: "Invalid login credentials"});
+               }
+                if(user && await user.verifyPassword(password))
+                  {
+                    return res.json({data:user});
+                  }
+                   else 
+                       {
+                        return res.json({message: "Invalid login credentials !!"});
+                       }
+                // res.status(201).json({
+                //     status:'sucess',
+                //     data: 'Admin has been Logged successfully'
+                // })
+          }
+            catch(err)
+                    {
+                        res.json({
+                            status:'failed',
+                            error: err.message,
+                        });
+                    }
 };
 
 //@desc : Get all Admins

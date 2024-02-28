@@ -82,6 +82,13 @@ adminSchema.pre('save' , async function (next) {
   next();//calling the next Middleware that is the controller which we have password hashing process
 })
 
+//Verify password:
+adminSchema.methods.verifyPassword = async function(enterPassword)
+{
+  //comparring the curent password registred with the one entred by the user
+  return await bcrypt.compare(enterPassword , this.password);
+}
+
 //model
 const Admin = mongoose.model("Admin", adminSchema);
 
