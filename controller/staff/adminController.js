@@ -11,8 +11,8 @@ exports.regiterAdminController = AsyncHandler(async (req,res) => {
             //Check if email exists
             const adminFound = await Admin.findOne({email});
             if(adminFound)
-                  {
-                    res.json("Admin Already exists !!");
+                  { 
+                    throw new Error("Admin Exists");
                   }
                   //registration:
                   const user = await Admin.create({
