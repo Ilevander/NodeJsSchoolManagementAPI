@@ -1,4 +1,4 @@
-// const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 
 const mongoose = require("mongoose");
 
@@ -69,6 +69,18 @@ const adminSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+//Hash password:
+adminSchema.pre('save' , async function (next) {
+  if(!this.isModified('password'))
+    {//if user wanna modify his informations without showing password (hash...)
+      next();
+    }
+  console.log('Process hashingpassword on ...');
+  console.log(this);//printing curent object that shold be hashed
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+  next();//calling the next Middleware that is the controller which we have password hashing process
+})
 
 //model
 const Admin = mongoose.model("Admin", adminSchema);

@@ -10,10 +10,10 @@ exports.regiterAdminController = async (req,res) => {
         {
             //Check if email exists
             const adminFound = await Admin.findOne({email});
-            if(adminFound)
-                  {
-                    res.json("Admin Already exists !!");
-                  }
+            // if(adminFound)
+            //       {
+            //         res.json("Admin Already exists !!");
+            //       }
                   //registration:
                   const user = await Admin.create({
                     name,
