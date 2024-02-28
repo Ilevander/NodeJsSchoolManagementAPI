@@ -1,24 +1,37 @@
 //to separate the business logic and taking dispatching roles from adminRouter
-
+const Admin = require("../../model/Staff/Admin");
 
 //@desc : Register Admin
 //@route : POST /api/admins/register
 //@access Private
-exports.regiterAdminController = (req,res) => {
+exports.regiterAdminController = async (req,res) => {
+    const {name , email , password } = req.body;
     try
         {
-            res.status(201).json({
-                status:'sucess',
-                data: 'Admin has been registred successfully'
-            })
-        }
-        catch(err)
-                {
-                    res.json({
-                        status:'failed',
-                        err: error.message,
-                    });
-                }
+            //Check if email exists
+            const adminFound = await Admin.findOne({email});
+            if(adminFound)
+                  {
+                    res.json("Admin Already exists !!");
+                  }
+                  //registration:
+                  const user = await Admin.create({
+                    name,
+                    email,
+                    password,
+                  });
+                res.status(201).json({
+                    status:'sucess',
+                    data: user
+                })
+         }
+            catch(err)
+                    {
+                        res.json({
+                            status:'failed',
+                            error: err.message,
+                        });
+                    }
 };
 
 //@desc :  Login Admin
