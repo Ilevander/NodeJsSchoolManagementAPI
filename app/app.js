@@ -16,3 +16,4 @@ app.use("/api/v1/admins", adminRouter);
 
 
 module.exports = app;
+
