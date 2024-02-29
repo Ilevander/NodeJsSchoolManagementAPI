@@ -1,5 +1,5 @@
 //to separate the business logic and taking dispatching roles from adminRouter
-
+// ENDPOINTS
 const AsyncHandler = require("express-async-handler");
 const Admin = require("../../model/Staff/Admin");
 const generateToken = require("../../utils/generateToken");
@@ -84,6 +84,7 @@ exports.getAllAdmins = (req,res) => {
 exports.getAdminByIdController = (req,res) => {
     try
         {
+            console.log(req.userAuth);
             res.status(201).json({
                 status:'sucess',
                 data: 'Get Single Admin'
