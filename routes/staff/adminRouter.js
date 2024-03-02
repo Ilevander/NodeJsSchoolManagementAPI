@@ -10,7 +10,7 @@ adminRouter.post("/register" , regiterAdminController);
 adminRouter.post("/login" , loginAdminController);
 
 //GET : All Admin
-adminRouter.get("/" , getAllAdmins);
+adminRouter.get("/" ,isLogin, getAllAdmins);
 
 //GET : Single Admin
 //Protecting the URL with the isLogin Middleware
