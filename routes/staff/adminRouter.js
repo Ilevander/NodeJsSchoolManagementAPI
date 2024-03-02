@@ -1,6 +1,7 @@
 const express = require('express');
 const {regiterAdminController, getAllAdmins, loginAdminController, getAdminProfileByIdController, updateAdminController, deleteAdminController, suspendTeacherController, unsuspendTeacherController, withdrawTeacherController, unwithdrawTeacherController, publishExamTeacherController, unpublishExamTeacherController} = require("../../controller/staff/adminController");
 const isLogin = require('../../middlewares/isLogin');
+const isAdmin = require('../../middlewares/isAdmin');
 const adminRouter = express.Router();
 
 //POST : Register Admin
@@ -14,7 +15,7 @@ adminRouter.get("/" ,isLogin, getAllAdmins);
 
 //GET : Single Admin
 //Protecting the URL with the isLogin Middleware
-adminRouter.get("/profile" ,isLogin ,getAdminProfileByIdController );
+adminRouter.get("/profile" ,isLogin , isAdmin, getAdminProfileByIdController );
 
 //UPDATE : Login Admin
 adminRouter.put("/:id" , updateAdminController);
