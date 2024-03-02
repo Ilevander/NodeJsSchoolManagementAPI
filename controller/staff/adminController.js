@@ -81,23 +81,21 @@ exports.getAllAdmins = (req,res) => {
 //@desc : Get Single Admins
 //@route : GET /api/admins/:id
 //@access Private
-exports.getAdminByIdController = (req,res) => {
-    try
-        {
-            console.log(req.userAuth);
-            res.status(201).json({
-                status:'sucess',
-                data: 'Get Single Admin'
-            })
-        }
-        catch(err)
-                {
-                    res.json({
-                        status:'failed',
-                        err: error.message,
+exports.getAdminProfileByIdController = AsyncHandler(async(req,res) => {
+    const admin = await Admin.findById(req.userAuth._id).select('-password -createdAt -updatedAt')
+    console.log(req.userAuth);
+    if(!admin)
+            {
+                throw new Error('Admin not found');
+            }
+             else
+                 {
+                    res.status(200).json({
+                        status: "success",
+                        data: admin,
                     });
-                }
-};
+                 }
+});
 
 //@desc:  Update Admins
 //@route : PUT /api/admins/:id
