@@ -18,7 +18,7 @@ adminRouter.get("/" ,isLogin, getAllAdmins);
 adminRouter.get("/profile" ,isLogin , isAdmin, getAdminProfileByIdController );
 
 //UPDATE : Login Admin
-adminRouter.put("/:id" , updateAdminController);
+adminRouter.put("/" ,isLogin, isAdmin, updateAdminController);
 
 //DELETE : Admin
 adminRouter.delete("/:id" , deleteAdminController);
