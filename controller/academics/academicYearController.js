@@ -93,8 +93,8 @@ exports.updateAcademicYear = AysncHandler(async (req, res) => {
 exports.deleteAcademicYear = AysncHandler(async (req, res) => {
   await AcademicYear.findByIdAndDelete(req.params.id);
 
-  res.status(201).json({
-    status: "success",
-    message: "Academic year deleted successfully",
-  });
+      res.status(201).json({
+          status: "success",
+          message: "Academic year deleted successfully",
+      });
 });
