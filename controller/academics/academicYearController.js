@@ -55,7 +55,7 @@ exports.getAcademicYear = AysncHandler(async (req, res) => {
     message: "Academic years fetched successfully",
     data: academicYears,
   });
-});
+}); 
 
 //@desc   Update  Academic Year
 //@route  PUT /api/v1/academic-years/:id
