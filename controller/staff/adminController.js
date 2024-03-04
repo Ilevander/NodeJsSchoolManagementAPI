@@ -124,17 +124,29 @@ exports.updateAdminController = AsyncHandler(async(req,res) => {
                 {
                     throw new Error('This email is taken /exist')
                 }
-                else
-                    {
-                        //UPDATE:
-                       const admin=  await Admin.findByIdAndUpdate(req.userAuth._id , {email,password,name} , {new: true, runValidators: true,});
-                        res.status(200).json({//means OK status
-                            status: 'success',
-                            data: admin,
-                            message: "Admin updated successfully",
-                        });
-                    }
-             
+                //Hashing password before registering the user
+                const salt = await bcrypt.genSalt(10);
+                const passwordHash = await bcrypt.hash(password, salt);
+                //Check if the user is updating the password
+                if(password)
+                            {
+                             //UPDATE:
+                            const admin=  await Admin.findByIdAndUpdate(
+                                req.userAuth._id , 
+                                { email,
+                                  password: passwordHash,  
+                                  name,
+                                 } , 
+                                { 
+                                    new: true, 
+                                    runValidators: true,
+                                });
+                                    res.status(200).json({//means OK status
+                                        status: 'success',
+                                        data: admin,
+                                        message: "Admin updated successfully",
+                                    });
+                            }         
 });
 
 //@desc : Update Admins
