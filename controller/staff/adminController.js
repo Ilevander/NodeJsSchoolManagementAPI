@@ -5,6 +5,7 @@ const Admin = require("../../model/Staff/Admin");
 const generateToken = require("../../utils/generateToken");
 const verifyToken = require("../../utils/verifyToken");
 const bcrypt = require('bcryptjs'); 
+const { hashPassword, isPassMatched } = require("../../utils/helpers");
 
 //@desc : Register Admin
 //@route : POST /api/admins/register
@@ -18,13 +19,13 @@ exports.regiterAdminController = AsyncHandler(async (req,res) => {
                     throw new Error("Admin Exists");
                   }
                   //Hashing password before registering the user
-                  const salt = await bcrypt.genSalt(10);
-                  const passwordHash = await bcrypt.hash(password, salt);
+                //   const salt = await bcrypt.genSalt(10);
+                //   const passwordHash = await bcrypt.hash(password, salt);
                   //registration:
                   const user = await Admin.create({
                     name,
                     email,
-                    password: passwordHash,
+                    password: await hashPassword(password),//await because the function should return a promise (its asynchronous)
                   });
                 res.status(201).json({
                     status:'success',
@@ -45,7 +46,7 @@ exports.loginAdminController = AsyncHandler(async (req,res) => {
                 return res.json({message: "Invalid login credentials, USER NOT FOUND"});
                }
                //Verify the password: 
-               const isMatched =  await bcrypt.compare(password , user.password);
+               const isMatched =  await isPassMatched(password , user.password);
                if(!isMatched)
                         {
                             return res.json({message: "Invalid login credentials"});
@@ -125,8 +126,8 @@ exports.updateAdminController = AsyncHandler(async(req,res) => {
                     throw new Error('This email is taken /exist')
                 }
                 //Hashing password before registering the user
-                const salt = await bcrypt.genSalt(10);
-                const passwordHash = await bcrypt.hash(password, salt);
+                // const salt = await bcrypt.genSalt(10);
+                // const passwordHash = await bcrypt.hash(password, salt);
                 //Check if the user is updating the password
                 if(password)
                             {
@@ -134,7 +135,7 @@ exports.updateAdminController = AsyncHandler(async(req,res) => {
                             const admin=  await Admin.findByIdAndUpdate(
                                 req.userAuth._id , 
                                 { email,
-                                  password: passwordHash,  
+                                  password: await hashPassword(password),  
                                   name,
                                  } , 
                                 { 
