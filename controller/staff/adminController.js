@@ -4,6 +4,7 @@ const AsyncHandler = require("express-async-handler");
 const Admin = require("../../model/Staff/Admin");
 const generateToken = require("../../utils/generateToken");
 const verifyToken = require("../../utils/verifyToken");
+const bcrypt = require('bcryptjs'); 
 
 //@desc : Register Admin
 //@route : POST /api/admins/register
@@ -16,14 +17,17 @@ exports.regiterAdminController = AsyncHandler(async (req,res) => {
                   { 
                     throw new Error("Admin Exists");
                   }
+                  //Hashing password before registering the user
+                  const salt = await bcrypt.genSalt(10);
+                  const passwordHash = await bcrypt.hash(password, salt);
                   //registration:
                   const user = await Admin.create({
                     name,
                     email,
-                    password,
+                    password: passwordHash,
                   });
                 res.status(201).json({
-                    status:'sucess',
+                    status:'success',
                     data: user,
                     message: 'Admin registered successfully'
                 });
@@ -38,25 +42,39 @@ exports.loginAdminController = AsyncHandler(async (req,res) => {
             const user = await Admin.findOne({email});
             if(!user)
                {
-                return res.json({message: "Invalid login credentials"});
+                return res.json({message: "Invalid login credentials, USER NOT FOUND"});
                }
-                if(user && (await user.verifyPassword(password)))
-                  {
-                    //Save the user into req object:
-                    //req.userAuth = user;
-                    // const token = generateToken(user._id)
-                    // const verify = verifyToken(token);
-                    //console.log(verify);
-                    return res.json({data: generateToken(user._id) ,
-                                      message:"Admin logged in successfully"
-                                    });
-                  }
-                   else 
-                       {
-                        return res.json({message: "Invalid login credentials !!"});
-                       }
+               //Verify the password: 
+               const isMatched =  await bcrypt.compare(password , user.password);
+               if(!isMatched)
+                        {
+                            return res.json({message: "Invalid login credentials"});
+                        }
+                        else
+                              {
+                                 return res.json({
+                                    data: generateToken(user._id),
+                                    message:"Admin logged in successfully",
+                                  });
+                              }   
+                         
+                // if(user && (await user.verifyPassword(password)))
+                //   {
+                //     //Save the user into req object:
+                //     //req.userAuth = user;
+                //     // const token = generateToken(user._id)
+                //     // const verify = verifyToken(token);
+                //     //console.log(verify);
+                //     return res.json({data: generateToken(user._id) ,
+                //                       message:"Admin logged in successfully"
+                //                     });
+                //   }
+                //    else 
+                //        {
+                //         return res.json({message: "Invalid login credentials !!"});
+                //        }
                 // res.status(201).json({
-                //     status:'sucess',
+                //     status:'success',
                 //     data: 'Admin has been Logged successfully'
                 // })
 });

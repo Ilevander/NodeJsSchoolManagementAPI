@@ -70,24 +70,25 @@ const adminSchema = new mongoose.Schema(
   }
 );
 //Hash password:
-adminSchema.pre('save' , async function (next) {
-  if(!this.isModified('password'))
-    {//if user wanna modify his informations without showing password (hash...)
-      next();
-    }
-  console.log('Process hashingpassword on ...');
-  console.log(this);//printing curent object that shold be hashed
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
-  next();//calling the next Middleware that is the controller which we have password hashing process
-})
+// adminSchema.pre('save' , async function (next) {
+//   if(!this.isModified('password'))
+//     {//if user wanna modify his information without showing password (hash...)
+//       next();
+//     }
+//   console.log('Process hashingpassword on ...');
+//   console.log(this);//printing current object that should be hashed
+//   //salt bcrypt algorithm 
+//   const salt = await bcrypt.genSalt(10);
+//   this.password = await bcrypt.hash(this.password, salt);
+//   next();//calling the next Middleware that is the controller which we have password hashing process
+// })
 
-//Verify password:
-adminSchema.methods.verifyPassword = async function(enterPassword)
-{
-  //comparring the curent password registred with the one entred by the user
-  return await bcrypt.compare(enterPassword , this.password);
-}
+// //Verify password:
+// adminSchema.methods.verifyPassword = async function(enterPassword)
+// {
+//   //comparing the current password registered with the one entered by the user
+//   return await bcrypt.compare(enterPassword , this.password);
+// }
 
 //model
 const Admin = mongoose.model("Admin", adminSchema);
