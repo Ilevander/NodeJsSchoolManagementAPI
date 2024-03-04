@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 
 const adminRouter = require("../routes/staff/adminRouter");
-const academicYearRouter = require('../routes/academics/academicYear');
+const academicYearRouter = require('../routes/academics/academicYearRouter');
 
 const {globalErrorHandler, notFoundError} = require('../middlewares/globalErrorHandler');
 
