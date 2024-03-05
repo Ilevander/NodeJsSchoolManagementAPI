@@ -9,6 +9,7 @@ const classLevelRouter = require('../routes/academics/classLevelRouter');
 
 const {globalErrorHandler, notFoundError} = require('../middlewares/globalErrorHandler');
 const teachersRouter = require('../routes/staff/teachersRouter');
+const programRouter = require('../routes/academics/programRouter');
 
 
 
@@ -19,12 +20,15 @@ const app = express();
 app.use(morgan("dev"));
 app.use(express.json()); //pass incoming json data
 
+
 // ===== USING Routes Express =====:
 app.use("/api/v1/admins", adminRouter);
 app.use("/api/v1/academic-years",academicYearRouter);
 app.use("/api/v1/academic-terms", academicTermRouter);
 app.use("/api/v1/teachers", teachersRouter);
 app.use("/api/v1/class-levels",classLevelRouter);
+app.use("/api/v1/programs", programRouter);
+
 
 //Error middlewares : 
 app.use(notFoundError);
