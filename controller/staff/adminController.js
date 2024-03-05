@@ -96,7 +96,9 @@ exports.getAllAdmins = AsyncHandler(async(req,res) => {
 //@route : GET /api/admins/:id
 //@access Private
 exports.getAdminProfileByIdController = AsyncHandler(async(req,res) => {
-    const admin = await Admin.findById(req.userAuth._id).select('-password -createdAt -updatedAt')
+    const admin = await Admin.findById(req.userAuth._id)
+    .select('-password -createdAt -updatedAt')
+    .populate("academicYears")
     console.log(req.userAuth);
     if(!admin)
             {

@@ -5,7 +5,7 @@ const Admin = require("../../model/Staff/Admin");
 
 //@desc Create Academic Term Year
 //@route POST /api/v1/academic-terms
-//@acess  Private
+//@access  Private
 exports.createAcademicTerm = AsyncHandler(async (req, res) => {
   const { name, description, duration } = req.body;
   //check if exists
@@ -46,7 +46,7 @@ exports.getAcademicTerms = AsyncHandler(async (req, res) => {
 
 //@desc  get single Academic term
 //@route GET /api/v1/academic-terms/:id
-//@acess  Private
+//@access  Private
 exports.getAcademicTerm = AsyncHandler(async (req, res) => {
   const academicTerms = await AcademicTerm.findById(req.params.id);
 
@@ -59,7 +59,7 @@ exports.getAcademicTerm = AsyncHandler(async (req, res) => {
 
 //@desc   Update  Academic term
 //@route  PUT /api/v1/academic-terms/:id
-//@acess  Private
+//@access  Private
 exports.updateAcademicTerms = AsyncHandler(async (req, res) => {
   const { name, description, duration } = req.body;
   //check name exists
@@ -89,7 +89,7 @@ exports.updateAcademicTerms = AsyncHandler(async (req, res) => {
 
 //@desc   Delete  Academic term
 //@route  PUT /api/v1/academic-terms/:id
-//@acess  Private
+//@access  Private
 exports.deleteAcademicTerm = AsyncHandler(async (req, res) => {
   await AcademicTerm.findByIdAndDelete(req.params.id);
 
