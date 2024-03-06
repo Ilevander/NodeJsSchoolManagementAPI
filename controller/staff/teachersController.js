@@ -117,50 +117,54 @@ exports.teacherUpdateProfile = AsyncHandler(async (req, res) => {
         const { email, name, password } = req.body;
         //if email is taken
         const emailExist = await Teacher.findOne({ email });
-        if (emailExist) {
-          throw new Error("This email is taken/exist");
-        }
+        if (emailExist) 
+                    {
+                      throw new Error("This email is taken/exist");
+                    }
 
-        //hash password
-        //check if user is updating password
+                    //hash password
+                    //check if user is updating password
 
-        if (password) {
-          //update
-          const teacher = await Teacher.findByIdAndUpdate(
-            req.userAuth._id,
-            {
-              email,
-              password: await hashPassword(password),
-              name,
-            },
-            {
-              new: true,
-              runValidators: true,
-            }
-          );
-          res.status(200).json({
-            status: "success",
-            data: teacher,
-            message: "Teacher updated successfully",
-          });
-        } else {
-          //update
-          const teacher = await Teacher.findByIdAndUpdate(
-            req.userAuth._id,
-            {
-              email,
-              name,
-            },
-            {
-              new: true,
-              runValidators: true,
-            }
-          );
-          res.status(200).json({
-            status: "success",
-            data: teacher,
-            message: "Teacher updated successfully",
-          });
+                    if (password) 
+                    {
+                      //update
+                      const teacher = await Teacher.findByIdAndUpdate(
+                        req.userAuth._id,
+                        {
+                          email,
+                          password: await hashPassword(password),
+                          name,
+                        },
+                        {
+                          new: true,
+                          runValidators: true,
+                        }
+                      );
+                      res.status(200).json({
+                        status: "success",
+                        data: teacher,
+                        message: "Teacher updated successfully",
+                      });
+                    } 
+                      else 
+                      {
+                        //update
+                        const teacher = await Teacher.findByIdAndUpdate(
+                          req.userAuth._id,
+                          {
+                            email,
+                            name,
+                          },
+                          {
+                            new: true,
+                            runValidators: true,
+                          }
+                        );
+                        res.status(200).json({
+                          status: "success",
+                          data: teacher,
+                          message: "Teacher updated successfully",
+                        });
         }
       });
 
