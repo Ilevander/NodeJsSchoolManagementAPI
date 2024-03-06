@@ -11,12 +11,12 @@ const teachersRouter = require('../routes/staff/teachersRouter');
 const programRouter = require('../routes/academics/programRouter');
 const subjectRouter = require('../routes/academics/subjectsRouter');
 const yearGroupRouter = require('../routes/academics/yearGroupRouter');
+const examRouter = require('../routes/academics/examRoutes');
 
 
 const app = express();
 
 //=========Middleware========
-
 app.use(morgan("dev"));
 app.use(express.json()); //pass incoming json data
 
@@ -31,6 +31,7 @@ app.use("/api/v1/programs", programRouter);
 app.use("/api/v1/subjects", subjectRouter);
 app.use("/api/v1/year-groups", yearGroupRouter);
 app.use("/api/v1/teachers", teachersRouter);
+app.use("/api/v1/exams" , examRouter);
 
 
 //Error middlewares : 
