@@ -65,10 +65,10 @@ exports.loginTeacher = AsyncHandler(async (req, res) => {
 exports.getAllTeachersAdmin = AsyncHandler(async (req, res) => {
         const teachers = await Teacher.find();
         res.status(200).json({
-          status: "success",
-          message: "Teachers fetched successfully",
-          data: teachers,
-        });
+            status: "success",
+            message: "Teachers fetched successfully",
+            data: teachers,
+          });
       });
 
       
