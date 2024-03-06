@@ -15,4 +15,5 @@ const isTeacher = async (req, res, next) => {
                   }
 };
 
+//exports the module
 module.exports = isTeacher;
