@@ -79,14 +79,15 @@ exports.getTeacherByAdmin = AsyncHandler(async (req, res) => {
         const teacherID = req.params.teacherID;
         //find the teacher
         const teacher = await Teacher.findById(teacherID);
-        if (!teacher) {
-          throw new Error("Teacher not found");
-        }
-        res.status(200).json({
-          status: "success",
-          message: "Teacher fetched successfully",
-          data: teacher,
-        });
+        if (!teacher) 
+                  {
+                    throw new Error("Teacher not found");
+                  }
+                  res.status(200).json({
+                    status: "success",
+                    message: "Teacher fetched successfully",
+                    data: teacher,
+                  });
       });
 
 
@@ -97,14 +98,15 @@ exports.getTeacherProfile = AsyncHandler(async (req, res) => {
         const teacher = await Teacher.findById(req.userAuth?._id).select(
           "-password -createdAt -updatedAt"
         );
-        if (!teacher) {
-          throw new Error("Teacher not found");
-        }
-        res.status(200).json({
-          status: "success",
-          data: teacher,
-          message: "Teacher Profile fetched  successfully",
-        });
+        if (!teacher) 
+                    {
+                      throw new Error("Teacher not found");
+                    }
+                    res.status(200).json({
+                      status: "success",
+                      data: teacher,
+                      message: "Teacher Profile fetched  successfully",
+                    });
       });
 
 
