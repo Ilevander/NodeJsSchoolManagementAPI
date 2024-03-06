@@ -176,54 +176,60 @@ exports.adminUpdateTeacher = AsyncHandler(async (req, res) => {
         const { program, classLevel, academicYear, subject } = req.body;
         //if email is taken
         const teacherFound = await Teacher.findById(req.params.teacherID);
-        if (!teacherFound) {
-          throw new Error("Teacher not found");
-        }
+        if (!teacherFound) 
+                {
+                  throw new Error("Teacher not found");
+                }
         //Check if teacher is withdrawn
-        if (teacherFound.isWitDrawn) {
-          throw new Error("Action denied, teacher is withdraw");
-        }
+        if (teacherFound.isWitDrawn)
+                {
+                  throw new Error("Action denied, teacher is withdraw");
+                }
         //assign a program
-        if (program) {
-          teacherFound.program = program;
-          await teacherFound.save();
-          res.status(200).json({
-            status: "success",
-            data: teacherFound,
-            message: "Teacher updated successfully",
-          });
-        }
+        if (program) 
+              {
+                teacherFound.program = program;
+                await teacherFound.save();
+                res.status(200).json({
+                  status: "success",
+                  data: teacherFound,
+                  message: "Teacher updated successfully",
+                });
+              }
 
         //assign Class level
-        if (classLevel) {
-          teacherFound.classLevel = classLevel;
-          await teacherFound.save();
-          res.status(200).json({
-            status: "success",
-            data: teacherFound,
-            message: "Teacher updated successfully",
-          });
-        }
+        if (classLevel) 
+              {
+                teacherFound.classLevel = classLevel;
+                await teacherFound.save();
+                res.status(200).json({
+                  status: "success",
+                  data: teacherFound,
+                  message: "Teacher updated successfully",
+                });
+              }
 
         //assign Academic year
-        if (academicYear) {
-          teacherFound.academicYear = academicYear;
-          await teacherFound.save();
-          res.status(200).json({
-            status: "success",
-            data: teacherFound,
-            message: "Teacher updated successfully",
-          });
-        }
+        if (academicYear) 
+            {
+              teacherFound.academicYear = academicYear;
+              await teacherFound.save();
+              res.status(200).json({
+                status: "success",
+                data: teacherFound,
+                message: "Teacher updated successfully",
+              });
+            }
 
         //assign subject
-        if (subject) {
-          teacherFound.subject = subject;
-          await teacherFound.save();
-          res.status(200).json({
-            status: "success",
-            data: teacherFound,
-            message: "Teacher updated successfully",
-          });
-        }
+        if (subject) 
+              {
+                teacherFound.subject = subject;
+                await teacherFound.save();
+                res.status(200).json({
+                  status: "success",
+                  data: teacherFound,
+                  message: "Teacher updated successfully",
+                });
+              }
       });
