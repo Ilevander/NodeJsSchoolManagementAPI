@@ -30,6 +30,7 @@ exports.adminRegisterTeacher = AsyncHandler(async (req, res) => {
       });
 
 
+
 //@desc    login a teacher
 //@route   POST /api/v1/teachers/login
 //@access  Public
@@ -37,20 +38,24 @@ exports.loginTeacher = AsyncHandler(async (req, res) => {
         const { email, password } = req.body;
         //find the  user
         const teacher = await Teacher.findOne({ email });
-        if (!teacher) {
-          return res.json({ message: "Invalid login crendentials" });
-        }
-        //verify the password
-        const isMatched = await isPassMatched(password, teacher?.password);
-        if (!isMatched) {
-          return res.json({ message: "Invalid login crendentials" });
-        } else {
-          res.status(200).json({
-            status: "success",
-            message: "Teacher logged in successfully",
-            data: generateToken(teacher?._id),
-          });
-        }
+        if (!teacher) 
+                {
+                  return res.json({ message: "Invalid login crendentials" });
+                }
+                //verify the password
+                const isMatched = await isPassMatched(password, teacher?.password);
+                if (!isMatched) 
+                        {
+                          return res.json({ message: "Invalid login crendentials" });
+                        } 
+                          else 
+                              {
+                                res.status(200).json({
+                                  status: "success",
+                                  message: "Teacher logged in successfully",
+                                  data: generateToken(teacher?._id),
+                                });
+                              }
       });
 
 
