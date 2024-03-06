@@ -1,6 +1,6 @@
 const Admin = require("../model/Staff/Admin");
 
-//To protect the request to do login into server (Middleware)
+//To protect the request to do login into server (Middleware) and using authorization like token by jwt at headers of http req
 
 const isAdmin = async (req, res, next) => {
    //Find the user

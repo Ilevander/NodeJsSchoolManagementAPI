@@ -10,7 +10,7 @@ const { hashPassword, isPassMatched } = require("../../utils/helpers");
 //@desc : Register Admin
 //@route : POST /api/admins/register
 //@access Private
-exports.regiterAdminController = AsyncHandler(async (req,res) => {
+exports.registerAdminController = AsyncHandler(async (req,res) => {
     const {name , email , password } = req.body;
             //Check if email exists
             const adminFound = await Admin.findOne({email});
@@ -179,7 +179,7 @@ exports.suspendTeacherController = (req,res) => {
     try
         {
             res.status(201).json({
-                status:'sucess',
+                status:'success',
                 data: 'Admin suspend teacher'
             })
         }
@@ -199,7 +199,7 @@ exports.unsuspendTeacherController = (req,res) => {
     try
         {
             res.status(201).json({
-                status:'sucess',
+                status:'success',
                 data: 'Admin unsuspend teacher'
             })
         }
@@ -219,7 +219,7 @@ exports.withdrawTeacherController = (req,res) => {
     try
         {
             res.status(201).json({
-                status:'sucess',
+                status:'success',
                 data: 'Admin withdraw teacher'
             })
         }
@@ -239,7 +239,7 @@ exports.unwithdrawTeacherController = (req,res) => {
     try
         {
             res.status(201).json({
-                status:'sucess',
+                status:'success',
                 data: 'Admin unwithdraw teacher'
             })
         }

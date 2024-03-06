@@ -1,11 +1,11 @@
 const express = require('express');
-const {regiterAdminController, getAllAdmins, loginAdminController, getAdminProfileByIdController, updateAdminController, deleteAdminController, suspendTeacherController, unsuspendTeacherController, withdrawTeacherController, unwithdrawTeacherController, publishExamTeacherController, unpublishExamTeacherController} = require("../../controller/staff/adminController");
+const {registerAdminController, getAllAdmins, loginAdminController, getAdminProfileByIdController, updateAdminController, deleteAdminController, suspendTeacherController, unsuspendTeacherController, withdrawTeacherController, unwithdrawTeacherController, publishExamTeacherController, unpublishExamTeacherController} = require("../../controller/staff/adminController");
 const isLogin = require('../../middlewares/isLogin');
 const isAdmin = require('../../middlewares/isAdmin');
 const adminRouter = express.Router();
 
 //POST : Register Admin
-adminRouter.post("/register" , regiterAdminController);
+adminRouter.post("/register" , registerAdminController);
 
 //POST : Login Admin
 adminRouter.post("/login" , loginAdminController);
