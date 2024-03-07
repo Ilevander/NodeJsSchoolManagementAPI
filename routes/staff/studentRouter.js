@@ -14,6 +14,7 @@ const isAdmin = require("../../middlewares/isAdmin");
 const isLogin = require("../../middlewares/isLogin");
 const isStudent = require("../../middlewares/isStudent");
 const isStudentLogin = require("../../middlewares/isStudentLogin");
+
 const studentRouter = express.Router();
 
 studentRouter.post("/admin/register", isLogin, isAdmin, adminRegisterStudent);
