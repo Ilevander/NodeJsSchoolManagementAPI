@@ -176,33 +176,34 @@ exports.adminUpdateStudent = AsyncHandler(async (req, res) => {
 
   //find the student by id
   const studentFound = await Student.findById(req.params.studentID);
-  if (!studentFound) {
-    throw new Error("Student not found");
-  }
+  if (!studentFound) 
+        {
+          throw new Error("Student not found");
+        }
 
-  //update
-  const studentUpdated = await Student.findByIdAndUpdate(
-    req.params.studentID,
-    {
-      $set: {
-        name,
-        email,
-        academicYear,
-        program,
-        prefectName,
-      },
-      $addToSet: {
-        classLevels,
-      },
-    },
-    {
-      new: true,
-    }
-  );
-  //send response
-  res.status(200).json({
-    status: "success",
-    data: studentUpdated,
-    message: "Student updated successfully",
-  });
+        //update
+        const studentUpdated = await Student.findByIdAndUpdate(
+              req.params.studentID,
+                  {
+                    $set: {
+                      name,
+                      email,
+                      academicYear,
+                      program,
+                      prefectName,
+                    },
+                    $addToSet: {
+                      classLevels,
+                    },
+                  },
+                  {
+                    new: true,
+                  }
+            );
+        //send response
+        res.status(200).json({
+          status: "success",
+          data: studentUpdated,
+          message: "Student updated successfully",
+        });
 });
