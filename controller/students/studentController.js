@@ -66,14 +66,15 @@ exports.getStudentProfile = AsyncHandler(async (req, res) => {
   const student = await Student.findById(req.userAuth?._id).select(
     "-password -createdAt -updatedAt"
   );
-  if (!student) {
-    throw new Error("Student not found");
-  }
-  res.status(200).json({
-    status: "success",
-    data: student,
-    message: "Student Profile fetched  successfully",
-  });
+    if (!student)
+        {
+          throw new Error("Student not found");
+        }
+        res.status(200).json({
+          status: "success",
+          data: student,
+          message: "Student Profile fetched  successfully",
+        });
 });
 
 
