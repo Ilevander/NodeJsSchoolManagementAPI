@@ -117,49 +117,53 @@ exports.studentUpdateProfile = AsyncHandler(async (req, res) => {
   const { email, password } = req.body;
   //if email is taken
   const emailExist = await Student.findOne({ email });
-  if (emailExist) {
-    throw new Error("This email is taken/exist");
-  }
+  if (emailExist) 
+        {
+          throw new Error("This email is taken/exist");
+        }
 
   //hash password
   //check if user is updating password
 
-  if (password) {
-    //update
-    const student = await Student.findByIdAndUpdate(
-      req.userAuth._id,
+  if (password) 
       {
-        email,
-        password: await hashPassword(password),
-      },
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
-    res.status(200).json({
-      status: "success",
-      data: student,
-      message: "Student updated successfully",
-    });
-  } else {
-    //update
-    const student = await Student.findByIdAndUpdate(
-      req.userAuth._id,
-      {
-        email,
-      },
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
-    res.status(200).json({
-      status: "success",
-      data: student,
-      message: "Student updated successfully",
-    });
-  }
+        //update
+        const student = await Student.findByIdAndUpdate(
+                    req.userAuth._id,
+                    {
+                      email,
+                      password: await hashPassword(password),
+                    },
+                    {
+                      new: true,
+                      runValidators: true,
+                    }
+              );
+        res.status(200).json({
+          status: "success",
+          data: student,
+          message: "Student updated successfully",
+        });
+      } 
+      else 
+        {
+          //update
+          const student = await Student.findByIdAndUpdate(
+                    req.userAuth._id,
+                    {
+                      email,
+                    },
+                    {
+                      new: true,
+                      runValidators: true,
+                    }
+              );
+          res.status(200).json({
+            status: "success",
+            data: student,
+            message: "Student updated successfully",
+          });
+        }
 });
 
 
