@@ -11,9 +11,7 @@ const isTeacher = require("../../middlewares/isTeacher");
 const isTeacherLogin = require("../../middlewares/isTeacherLogin");
 
 
-
 const examRouter = express.Router();
-
 
 
 examRouter

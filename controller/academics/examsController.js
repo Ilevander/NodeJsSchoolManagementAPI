@@ -76,12 +76,12 @@ exports.getExams = AsyncHandler(async (req, res) => {
 //@route GET /api/v1/exams/:id
 //@access  Private Teachers only
 exports.getExam = AsyncHandler(async (req, res) => {
-  const exams = await Exam.findById(req.params.id);
-  res.status(201).json({
-    status: "success",
-    message: "Exam fetched successfully",
-    data: exams,
-  });
+          const exams = await Exam.findById(req.params.id);
+          res.status(201).json({
+            status: "success",
+            message: "Exam fetched successfully",
+            data: exams,
+          });
 });
 
 
