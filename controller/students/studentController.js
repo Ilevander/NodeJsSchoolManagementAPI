@@ -98,14 +98,15 @@ exports.getStudentByAdmin = AsyncHandler(async (req, res) => {
   const studentID = req.params.studentID;
   //find the teacher
   const student = await Student.findById(studentID);
-  if (!student) {
-    throw new Error("Student not found");
-  }
-  res.status(200).json({
-    status: "success",
-    message: "Student fetched successfully",
-    data: student,
-  });
+  if (!student) 
+        {
+          throw new Error("Student not found");
+        }
+          res.status(200).json({
+            status: "success",
+            message: "Student fetched successfully",
+            data: student,
+          });
 });
 
 
