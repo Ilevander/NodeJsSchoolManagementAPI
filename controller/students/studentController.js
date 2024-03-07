@@ -35,23 +35,27 @@ exports.adminRegisterStudent = AsyncHandler(async (req, res) => {
 //@route   POST /api/v1/students/login
 //@access  Public
 exports.loginStudent = AsyncHandler(async (req, res) => {
-  const { email, password } = req.body;
-  //find the  user
-  const student = await Student.findOne({ email });
-  if (!student) {
-    return res.json({ message: "Invalid login crendentials" });
-  }
-  //verify the password
-  const isMatched = await isPassMatched(password, student?.password);
-  if (!isMatched) {
-    return res.json({ message: "Invalid login crendentials" });
-  } else {
-    res.status(200).json({
-      status: "success",
-      message: "Student logged in successfully",
-      data: generateToken(student?._id),
-    });
-  }
+      const { email, password } = req.body;
+      //find the  user
+      const student = await Student.findOne({ email });
+      if (!student) 
+            {
+              return res.json({ message: "Invalid login crendentials" });
+            }
+      //verify the password
+      const isMatched = await isPassMatched(password, student?.password);
+      if (!isMatched) 
+          {
+            return res.json({ message: "Invalid login crendentials" });
+          } 
+        else 
+          {
+            res.status(200).json({
+              status: "success",
+              message: "Student logged in successfully",
+              data: generateToken(student?._id),
+            });
+          }
 });
 
 
