@@ -15,16 +15,16 @@ const examRouter = express.Router();
 
 
 examRouter
-  .route("/")
-  .post(isTeacherLogin, isTeacher, createExam)
-  .get(isTeacherLogin, isTeacher, getExams);
+    .route("/")
+    .post(isTeacherLogin, isTeacher, createExam)
+    .get(isTeacherLogin, isTeacher, getExams);
 
 
 
 examRouter
-  .route("/:id")
-  .get(isTeacherLogin, isTeacher, getExam)
-  .put(isTeacherLogin, isTeacher, updateExam);
+    .route("/:id")
+    .get(isTeacherLogin, isTeacher, getExam)
+    .put(isTeacherLogin, isTeacher, updateExam);
 
 
 

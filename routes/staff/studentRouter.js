@@ -24,11 +24,12 @@ studentRouter.get("/admin", isLogin, isAdmin, getAllStudentsByAdmin);
 studentRouter.get("/:studentID/admin", isLogin, isAdmin, getStudentByAdmin);
 studentRouter.put("/update", isStudentLogin, isStudent, studentUpdateProfile);
 studentRouter.put(
-            "/:studentID/update/admin",
-            isLogin,
-            isAdmin,
-            adminUpdateStudent
-);
+              "/:studentID/update/admin",
+              isLogin,
+              isAdmin,
+              adminUpdateStudent
+   );
 
 
+   
 module.exports = studentRouter;

@@ -16,16 +16,16 @@ const classLevelRouter = express.Router();
 // academicTerRouter.get("/", isLogin, isAdmin, getAcademicYears);
 
 classLevelRouter
-  .route("/")
-  .post(isLogin, isAdmin, createClassLevel)
-  .get(isLogin, isAdmin, getClassLevels);
+        .route("/")
+        .post(isLogin, isAdmin, createClassLevel)
+        .get(isLogin, isAdmin, getClassLevels);
 
 
 classLevelRouter
-  .route("/:id")
-  .get(isLogin, isAdmin, getClassLevel)
-  .put(isLogin, isAdmin, updateClassLevel)
-  .delete(isLogin, isAdmin, deleteClassLevel);
+      .route("/:id")
+      .get(isLogin, isAdmin, getClassLevel)
+      .put(isLogin, isAdmin, updateClassLevel)
+      .delete(isLogin, isAdmin, deleteClassLevel);
 
 // academicTerRouter.get("/:id", isLogin, isAdmin, getAcademicYear);
 // academicTerRouter.put("/:id", isLogin, isAdmin, updateAcademicYear);
