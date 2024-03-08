@@ -56,3 +56,16 @@ exports.getQuestions = AsyncHandler(async (req, res) => {
           data: questions,
         });
 });
+
+
+//@desc  get Single question
+//@route GET /api/v1/questions/:id
+//@access  Private - Teacher only
+exports.getQuestion = AsyncHandler(async (req, res) => {
+  const question = await Question.findById(req.params.id);
+       res.status(201).json({
+         status: "success",
+         message: "Question fetched successfully",
+         data: question,
+       });
+});
