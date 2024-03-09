@@ -30,7 +30,7 @@ studentRouter.put(
               isLogin,
               isAdmin,
               adminUpdateStudent
-   );
+);
 
 studentRouter.post(
     "/exam/:examID/write",

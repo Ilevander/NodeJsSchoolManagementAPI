@@ -1,8 +1,10 @@
 const AsyncHandler = require("express-async-handler");
 const Student = require("../../model/Academic/Student");
 const ExamResult = require("../../model/Academic/ExamResults");
+const Exam = require("../../model/Academic/Exam");
 const generateToken = require("../../utils/generateToken");
 const { hashPassword, isPassMatched } = require("../../utils/helpers");
+
 
 //@desc  Admin Register Student
 //@route POST /api/students/admin/register
@@ -341,7 +343,7 @@ exports.writeExam = AsyncHandler(async (req, res) => {
   // //save
   await studentFound.save();
 
-  //Promoting
+  //Promoting Student to the next level
   //promote student to level 200
   if (
     examFound.academicTerm.name === "3rd term" &&
@@ -354,41 +356,41 @@ exports.writeExam = AsyncHandler(async (req, res) => {
       await studentFound.save();
     }
 
-  //promote student to level 300
-  if (
-    examFound.academicTerm.name === "3rd term" &&
-    status === "Pass" &&
-    studentFound?.currentClassLevel === "Level 200"
-  ) 
-    {
-      studentFound.classLevels.push("Level 300");
-      studentFound.currentClassLevel = "Level 300";
-      await studentFound.save();
-    }
+        //promote student to level 300
+        if (
+          examFound.academicTerm.name === "3rd term" &&
+          status === "Pass" &&
+          studentFound?.currentClassLevel === "Level 200"
+        ) 
+          {
+            studentFound.classLevels.push("Level 300");
+            studentFound.currentClassLevel = "Level 300";
+            await studentFound.save();
+          }
 
-  //promote student to level 400
-  if (
-    examFound.academicTerm.name === "3rd term" &&
-    status === "Pass" &&
-    studentFound?.currentClassLevel === "Level 300"
-  ) 
-    {
-      studentFound.classLevels.push("Level 400");
-      studentFound.currentClassLevel = "Level 400";
-      await studentFound.save();
-    }
+            //promote student to level 400
+            if (
+              examFound.academicTerm.name === "3rd term" &&
+              status === "Pass" &&
+              studentFound?.currentClassLevel === "Level 300"
+            ) 
+              {
+                studentFound.classLevels.push("Level 400");
+                studentFound.currentClassLevel = "Level 400";
+                await studentFound.save();
+              }
 
-  //promote student to graduate
-  if (
-    examFound.academicTerm.name === "3rd term" &&
-    status === "Pass" &&
-    studentFound?.currentClassLevel === "Level 400"
-   ) 
-    {
-      studentFound.isGraduated = true;
-      studentFound.yearGraduated = new Date();
-      await studentFound.save();
-    }
+                //promote student to graduate
+                if (
+                  examFound.academicTerm.name === "3rd term" &&
+                  status === "Pass" &&
+                  studentFound?.currentClassLevel === "Level 400"
+                ) 
+                  {
+                    studentFound.isGraduated = true;
+                    studentFound.yearGraduated = new Date();
+                    await studentFound.save();
+                  }
 
   res.status(200).json({
     status: "success",
