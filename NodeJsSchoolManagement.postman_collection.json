@@ -1,0 +1,2191 @@
+{
+	"info": {
+		"_postman_id": "da8bb70f-7551-44ef-a41b-f8470172159b",
+		"name": "NodeJsSchoolManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29700066"
+	},
+	"item": [
+		{
+			"name": "Academics",
+			"item": [
+				{
+					"name": "Register admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ilyass02\",\r\n    \"email\": \"ilyass02@gmail.com\",\r\n    \"password\": \"ilyass02123\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/admins/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admins",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "toto eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTUyOWUwZWU4ZGExMmIxMTEzNzlhNiIsImlhdCI6MTcwOTY0MDk5MCwiZXhwIjoxNzEwMDcyOTkwfQ.-riS_5bRQq3iENQmj26IdDSa52AuhTOuJs6Sqdlu48E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ilyass22@gmail.com\",\r\n    \"password\": \"ilyass123\"\r\n}   \r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/admins/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admins",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Admins",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/admins/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admins",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Profile Admin",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/admins/profile",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admins",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ilyass22\",\r\n    \"email\": \"ilyass22@gmail.com\",\r\n    \"password\": \"ilyass123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/admins/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admins",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Admin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/admins/765",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admins",
+								"765"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Suspend teacher",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/admins/suspend/teacher/23",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admins",
+								"suspend",
+								"teacher",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Unsuspend teacher",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/admins/unsuspend/teacher/12",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admins",
+								"unsuspend",
+								"teacher",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Withdraw teacher",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/admins/withdraw/teacher/12",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admins",
+								"withdraw",
+								"teacher",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Unwithdraw teacher",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/admins/unwithdraw/teacher/12",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admins",
+								"unwithdraw",
+								"teacher",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Publish Exam",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/admins/publish/exam/12",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admins",
+								"publish",
+								"exam",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Unpublish Exam",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/admins/unpublish/exam/12",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admins",
+								"unpublish",
+								"exam",
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AcademicYear",
+			"item": [
+				{
+					"name": "Create Academic-year",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "toto {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"2020-2021 third Academic year\",\r\n    \"fromYear\" : \"2026\",\r\n    \"toYear\" : \"2027\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/academic-years?",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"academic-years"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Academic Years",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"2023-2024 Academic year\",\r\n    \"fromYear\" : \"2023\",\r\n    \"toYear\" : \"2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/academic-years",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"academic-years"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Academic Year By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"2023-2024 Academic year\",\r\n    \"fromYear\" : \"2023\",\r\n    \"toYear\" : \"2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/academic-years/65e712f2f7a19273b4cf8649",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"academic-years",
+								"65e712f2f7a19273b4cf8649"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Academic Year",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "toto {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"2020-2021 third Academic year UPDATED\",\r\n    \"fromYear\" : \"2029\",\r\n    \"toYear\" : \"2030 \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/academic-years/65e712f2f7a19273b4cf8649",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"academic-years",
+								"65e712f2f7a19273b4cf8649"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Academic Year",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Admin {{tokenAdmin}}",
+								"type": "text",
+								"description": "Only Admin can do this request using the middlware system , should be logged in providing the only Token JWT"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"2023-2024 Academic year\",\r\n    \"fromYear\" : \"2023\",\r\n    \"toYear\" : \"2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/academic-years/65e712f2f7a19273b4cf8649",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"academic-years",
+								"65e712f2f7a19273b4cf8649"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AcademicTerm",
+			"item": [
+				{
+					"name": "Create Academic Term",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "toto {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"JUSTE CREATED NOW\" ,\r\n    \"description\": \"tHATS FOR YOU GUYS :)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/academic-terms?",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"academic-terms"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Academic Term",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/academic-terms",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"academic-terms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Academic Term",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "toto {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"2023-2024 Academic year\",\r\n    \"fromYear\" : \"2023\",\r\n    \"toYear\" : \"2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/academic-terms/65eccb621b50fc230caecd2f",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"academic-terms",
+								"65eccb621b50fc230caecd2f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Academic Term",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "toto {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"this last one was updated hh\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/academic-terms/65eccb621b50fc230caecd2f",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"academic-terms",
+								"65eccb621b50fc230caecd2f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Academic Term",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "toto {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/academic-terms/65eccb621b50fc230caecd2f",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"academic-terms",
+								"65eccb621b50fc230caecd2f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teachers",
+			"item": [
+				{
+					"name": "Admin register Teacher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"New teahcer registred\",\r\n    \"email\": \"teacher.NOW@gmail.com\" ,\r\n    \"password\": \"teacher123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/teachers/admin/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"teachers",
+								"admin",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Teacher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"description": "Not necessary to have autorization to do login",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"teachertyty@gmail.com\" ,\r\n    \"password\": \"teacher123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/teachers/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"teachers",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Get All Teachers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"description": "Only Admin coud do this request using Admin's token , if i remove this token (empty) or use other token , i will get Access denied",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/teachers/admin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"teachers",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Get Single Teacher",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text",
+								"description": "the same jsut for admin to supervise teachers"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/teachers/65eccc751b50fc230caecd51/admin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"teachers",
+								"65eccc751b50fc230caecd51",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Teacher Profile By teacher",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "teacher {{tokenTeacher}}",
+								"type": "text",
+								"description": "Here , we cannot view teacher Profile using token of admin , because i used isTeacherLogin Middleware that oblige to use only teacher token"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/teachers/profile",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"teachers",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Teacher Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "teacher {{tokenTeacher}}",
+								"type": "text",
+								"description": "Here , we cannot view teacher Profile using token of admin , because i used isTeacherLogin Middleware that oblige to use only teacher token"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"teahcer UPDATED\",\r\n   \"email\": \"teachertyty.update@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/teachers/65e9a98a50b2cf896be3e356/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"teachers",
+								"65e9a98a50b2cf896be3e356",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Exams",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "toto {{tokenTeacher}}",
+								"type": "text",
+								"description": "Here , we cannot update teacher Profile using token of teacher , because i used isAdmin  Middleware that obligate to use only Admin token"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"2 term computer science exams\",\r\n    \"description\" : \"this is the 2 term Software Enginneering description\",\r\n    \"academicTerm\": \"65e714ec6b33c533609bcf84\",\r\n    \"academicYear\": \"65e52ab5ee8da12b111379ac\",\r\n    \"classLevel\": \"65eb2a6fa5a1ed35b4df6de4\",\r\n    \"duration\": \"50 minutes\",\r\n    \"examTime\": \"20 pm\",\r\n    \"examType\": \"Controle\",\r\n    \"subject\": \"65ea46858d45341d2abbcc92\",\r\n    \"program\": \"65e741c3d3b7d76ca7f146d2\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/exams",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"exams"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exams",
+			"item": [
+				{
+					"name": "Create Exam",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "teacher {{tokenTeacher}}",
+								"type": "text",
+								"description": "Only teacher could do this request and should be loggeed in to validate middlewares"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"second term computer sience exam\",\r\n    \"description\": \"this is the SECOND dscription of the exam\",\r\n    \"academicTerm\": \"65e714ec6b33c533609bcf84\",\r\n    \"academicYear\": \"65e52ab5ee8da12b111379ac\",\r\n    \"subject\": \"65e7588940ca4901f63d68ac\",\r\n    \"program\": \"65e73f24e9f8d6dbd089c604\",\r\n    \"duration\": \"1 hour\",\r\n    \"examTime\": \"10h matin\",\r\n    \"examType\": \"Controle Continue\",\r\n    \"classLevel\": \"65e73011354c79d98989c78f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/exams",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"exams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Teacher Get All Exams",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "teacher {{tokenTeacher}}",
+								"description": "Only Teacher could do this request using Admin's token , if i remove this token (empty) or use other token , i will get Access denied",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/exams/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"exams",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Exam",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "teacher {{tokenTeacher}}",
+								"type": "text",
+								"description": "the same jsut for admin to supervise teachers"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"2023-2024 Academic year\",\r\n    \"fromYear\" : \"2023\",\r\n    \"toYear\" : \"2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/exams/65eccdfde24bc4c1e08b93c5",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"exams",
+								"65eccdfde24bc4c1e08b93c5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Exam by Teacher",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "teacher {{tokenTeacher}}",
+								"type": "text",
+								"description": "Te teacher shoulld be already logged In, request done just by teacher"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"UPDATED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/exams/65eccdfde24bc4c1e08b93c5",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"exams",
+								"65eccdfde24bc4c1e08b93c5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ClassLevel",
+			"item": [
+				{
+					"name": "Create Class Level",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Level 800\",\r\n    \"description\": \"This Level is for Technical Lead developpers\"\r\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/class-levels",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"class-levels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Class Levels",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/class-levels",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"class-levels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Class Level",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/class-levels/65eb2aa9a5a1ed35b4df6df9",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"class-levels",
+								"65eb2aa9a5a1ed35b4df6df9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Class Level",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text",
+								"description": "Could be done by Admin Only and should be already logged in to use the token for the authorization"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Level 800 UPDATED NOW\",\r\n    \"description\": \"This Level is for Technical Lead developpers UPDATED NOW\"\r\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/class-levels/65eb2aa9a5a1ed35b4df6df9",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"class-levels",
+								"65eb2aa9a5a1ed35b4df6df9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Class Level",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"2023-2024 Academic year\",\r\n    \"fromYear\" : \"2023\",\r\n    \"toYear\" : \"2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/class-levels/65eb2aa9a5a1ed35b4df6df9",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"class-levels",
+								"65eb2aa9a5a1ed35b4df6df9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Programs",
+			"item": [
+				{
+					"name": "Create Program",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Operating Systmes tototototot\",\r\n    \"description\": \"Linux , GNU , Ubuntu , Kali Linux , Windows Security.... TOTOTOTOTO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/programs",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"programs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Programs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/programs",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"programs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Program",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/programs/65eccef6e24bc4c1e08b93f0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"programs",
+								"65eccef6e24bc4c1e08b93f0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Program",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"name\": \"Operating Systmes tototototot UPUPUP\",\r\n    \"description\": \"Linux , GNU , Ubuntu , Kali Linux , Windows Security.... TOTOTOTOTO upupupup\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/programs/65eccef6e24bc4c1e08b93f0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"programs",
+								"65eccef6e24bc4c1e08b93f0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Program",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/programs/65eccef6e24bc4c1e08b93f0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"programs",
+								"65eccef6e24bc4c1e08b93f0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subjects",
+			"item": [
+				{
+					"name": "Create Subject",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Native Mobile Developpement\",\r\n    \"description\": \"Native Mobile Developpement using android Studio and Java\",\r\n    \"academicTerm\" : \"65e714ec6b33c533609bcf84\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/subjects/65e788d4744f676e2e2fb354",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"subjects",
+								"65e788d4744f676e2e2fb354"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Subjects",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"2023-2024 Academic year\",\r\n    \"fromYear\" : \"2023\",\r\n    \"toYear\" : \"2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/subjects",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Subject",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"2023-2024 Academic year\",\r\n    \"fromYear\" : \"2023\",\r\n    \"toYear\" : \"2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/subjects/65e78a03744f676e2e2fb361",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"subjects",
+								"65e78a03744f676e2e2fb361"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subject",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Native Mobile Developpement UPDATED FOR MOBILE TO FLUTTER\",\r\n    \"description\": \"Native Mobile Developpement using android Studio and Java , UPDATED WHY NOT REACT-NATIVE\",\r\n    \"academicTerm\": \"65e714ec6b33c533609bcf84\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/subjects/65e78a03744f676e2e2fb361",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"subjects",
+								"65e78a03744f676e2e2fb361"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Subject",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/subjects/65e78a03744f676e2e2fb361",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"subjects",
+								"65e78a03744f676e2e2fb361"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Year Groups",
+			"item": [
+				{
+					"name": "Create Year Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \" Neew academic year 2024 year group\",\r\n    \"academicYear\" : \"65e52ab5ee8da12b111379ac\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/year-groups",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"year-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Year Groups",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/year-groups",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"year-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Year Group",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/year-groups/65ea492e8d45341d2abbccb3",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"year-groups",
+								"65ea492e8d45341d2abbccb3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Year Group",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"2020 year group UPDATEDRTED UPDTED tototototototo tititititit\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/year-groups/65ecd0c9e24bc4c1e08b9447",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"year-groups",
+								"65ecd0c9e24bc4c1e08b9447"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Year Group",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/year-groups/65ecd0c9e24bc4c1e08b9447",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"year-groups",
+								"65ecd0c9e24bc4c1e08b9447"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "Admin register Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"New Student RECORDED\",\r\n    \"email\": \"student.new.now@gmail.com\",\r\n    \"password\": \"student123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/students/admin/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"students",
+								"admin",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\": \"student.new.now@gmail.com\",\r\n    \"password\": \"student123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/students/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"students",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Get All Students",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"description": "Only Admin coud do this request using Admin's token , if i remove this token (empty) or use other token , i will get Access denied.Admin need also to be loggedIn means that using the only and the same token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/students/admin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"students",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Get Single Student",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text",
+								"description": "the same jsut for admin to supervise Students using Middlewares: isLogin(Token=NotExpired) , isAdmin"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/students/65eb8e7f8ac26473d03c9dbe/admin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"students",
+								"65eb8e7f8ac26473d03c9dbe",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student Profile By student",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "student {{tokenStudent}}",
+								"type": "text",
+								"description": "Student could view his profile while he respect our middleware (should be student and LoggedInAsStudent), Only the Owner of token could View his profile, if other student try to login then other token will be generated"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/students/profile",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"students",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Student Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin {{tokenAdmin}}",
+								"type": "text",
+								"description": "Only admin coulc update student informations"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"toto Student updated FOR You GUys\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/students/65ecd134e24bc4c1e08b9463/update/admin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"students",
+								"65ecd134e24bc4c1e08b9463",
+								"update",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Student Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "student {{tokenStudent}}",
+								"type": "text",
+								"description": "Only Student could do this request and should be already loggedIn to use his Middleware"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Student name updated by him self UPDATE\",\r\n    \"email\": \"student.new.now.update@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/students/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"students",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Write Exam",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "student {{tokenStudent}}",
+								"type": "text",
+								"description": "Only Student could do this request and should be already loggedIn to use his Middleware"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"answers\": [\"optionA\", \"optionB\"]\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/students/exam/65e9ba25d7cc46add6b8dac8/write",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"students",
+								"exam",
+								"65e9ba25d7cc46add6b8dac8",
+								"write"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Qestions",
+			"item": [
+				{
+					"name": "Teacher Create Question",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "teacher {{tokenTeacher}}",
+								"type": "text",
+								"description": "Only Teracher could examinate this actions for exam and question "
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"question\": \"New question for this exam , what is the technology used for this backend ?\", \r\n    \"optionA\": \"NodeJS , Exrpress\", \r\n    \"optionB\": \"Spring Boot\",  \r\n    \"optionC\": \".NET ASP C#\", \r\n    \"optionD\": \"Django\",\r\n    \"correctAnswer\": \"optionA\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/questions/65e9ba25d7cc46add6b8dac8",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"questions",
+								"65e9ba25d7cc46add6b8dac8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Teacher Get All Questions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "teacher {{tokenTeacher}}",
+								"description": "Only Teacher coud do this request using Admin's token , if i remove this token (empty) or use other token , i will get Access denied.Teacher need also to be loggedIn means that using the only and the same token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/questions/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"questions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Teacher Get Single Question",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "teacher {{tokenTeacher}}",
+								"description": "Only Teacher coud do this request using Admin's token , if i remove this token (empty) or use other token , i will get Access denied.Teacher need also to be loggedIn means that using the only and the same token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/questions/65ecd2c3bc2cd7710991c268",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"questions",
+								"65ecd2c3bc2cd7710991c268"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Teacher Update Single Question",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "teacher {{tokenTeacher}}",
+								"description": "Only Teacher coud do this request using Admin's token , if i remove this token (empty) or use other token , i will get Access denied.Teacher need also to be loggedIn means that using the only and the same token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"question\": \"New question for this exam , what is the technology used for this backend UPDATED ? WAHT FOR THE FRONTeND IN THE FUTURfor this system \", \r\n    \"optionA\": \"NodeJS , Exrpress\", \r\n    \"optionB\": \"Spring Boot   Angular\",  \r\n    \"optionC\": \".NET ASP C#   HTML CSS\", \r\n    \"optionD\": \"React JS\",\r\n    \"correctAnswer\": \"optionD\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/questions/65ecd2c3bc2cd7710991c268",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"questions",
+								"65ecd2c3bc2cd7710991c268"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

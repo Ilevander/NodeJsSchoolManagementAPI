@@ -17,7 +17,7 @@ const academicTermRouter = express.Router();
 
 academicTermRouter
   .route("/")
-  .post(isLogin, isAdmin, createAcademicTerm)
+  .post(isLogin, isAdmin, createAcademicTerm)//Only done By Admin , you see , thats how my Middleware was programmed...
   .get(isLogin, isAdmin, getAcademicTerms);
 
 academicTermRouter
